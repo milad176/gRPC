@@ -27,3 +27,32 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC [C#] Master Class Build Modern\Project
 C:\Users\milad\Desktop\Udemy Courses\gRPC [C#] Master Class Build Modern\Project\grpc-csharp-class\server\bin\Debug\Google.Protobuf.dll
 C:\Users\milad\Desktop\Udemy Courses\gRPC [C#] Master Class Build Modern\Project\grpc-csharp-class\server\bin\Debug\Google.Protobuf.pdb
 C:\Users\milad\Desktop\Udemy Courses\gRPC [C#] Master Class Build Modern\Project\grpc-csharp-class\server\bin\Debug\Google.Protobuf.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\grpc_csharp_ext.x86.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\grpc_csharp_ext.x64.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\libgrpc_csharp_ext.x64.so
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\libgrpc_csharp_ext.x64.dylib
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\server.exe.config
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\server.exe
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\server.pdb
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Google.Protobuf.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Grpc.Core.Api.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Grpc.Core.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Buffers.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Memory.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Google.Protobuf.pdb
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Google.Protobuf.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Grpc.Core.pdb
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Grpc.Core.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Grpc.Core.Api.pdb
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\Grpc.Core.Api.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Buffers.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Memory.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.csprojAssemblyReference.cache
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.csproj.CoreCompileInputs.cache
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.csproj.CopyComplete
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.exe
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.pdb

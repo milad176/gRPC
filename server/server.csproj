@@ -71,6 +71,7 @@
     <protobuf Include="../*.proto" OutputDir="%(RelativePath)models/" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GreetingServiceImpl.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
