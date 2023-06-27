@@ -9,15 +9,15 @@ namespace client
     {
         const string target = "127.0.0.1:50051";
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             Channel channel = new Channel(target, ChannelCredentials.Insecure);
 
-            channel.ConnectAsync().ContinueWith((task) =>
-            {
-                if (task.Status == TaskStatus.RanToCompletion)
-                    Console.WriteLine("The client connected successfully");
-            });
+            await channel.ConnectAsync().ContinueWith((task) =>
+             {
+                 if (task.Status == TaskStatus.RanToCompletion)
+                     Console.WriteLine("The client connected successfully");
+             });
 
             var client = new GreetingService.GreetingServiceClient(channel);
 
@@ -27,14 +27,20 @@ namespace client
                 LastName = "Kardgar"
             };
 
-            var request = new GreetingRequest() 
+            //var request = new GreetingRequest() { Greeting = greeting };
+            //var response = client.Greet(request);
+            // Console.WriteLine(response.Result);
+
+
+            var request = new GreetManyTimesRequest() { Greeting = greeting };
+            var response = client.GreetManyTimes(request);
+
+            while (await response.ResponseStream.MoveNext())
             {
-                Greeting = greeting 
-            };
+                Console.WriteLine(response.ResponseStream.Current.Result);
+                await Task.Delay(200);
+            }
 
-            var response = client.Greet(request);
-
-            Console.WriteLine(response.Result);
 
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
