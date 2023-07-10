@@ -23,9 +23,9 @@ namespace server
 
             string result = string.Format("hello {0} {1}", request.Greeting.FirstName, request.Greeting.LastName);
 
-            foreach (var i in Enumerable.Range(1,10))
+            foreach (var i in Enumerable.Range(1, 10))
             {
-               await responseStream.WriteAsync(new GreetManyTimesResponse() { Result = result });
+                await responseStream.WriteAsync(new GreetManyTimesResponse() { Result = result });
             }
         }
 
@@ -33,7 +33,7 @@ namespace server
         {
             var result = "";
 
-            while ( await requestStream.MoveNext())
+            while (await requestStream.MoveNext())
             {
                 result += string.Format("hello {0} {1} {2}",
                     requestStream.Current.Greeting.FirstName,
@@ -42,6 +42,20 @@ namespace server
             }
 
             return new LongGreetResponse() { Result = result };
+        }
+
+        public override async Task GreetEveryone(IAsyncStreamReader<GreetEveryoneRequest> requestStream, IServerStreamWriter<GreetEveryoneResponse> responseStream, ServerCallContext context)
+        {
+            while (await requestStream.MoveNext())
+            {
+                var result = string.Format("hello {0} {1}",
+                      requestStream.Current.Greeting.FirstName,
+                      requestStream.Current.Greeting.LastName);
+
+                Console.WriteLine("Received: " + result);
+
+                await responseStream.WriteAsync(new GreetEveryoneResponse() { Result = result });
+            }
         }
     }
 }
