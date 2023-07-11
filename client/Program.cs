@@ -1,5 +1,6 @@
 ﻿using Greet;
 using Grpc.Core;
+using Sqrt;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,13 +21,16 @@ namespace client
                      Console.WriteLine("The client connected successfully");
              });
 
-            var client = new GreetingService.GreetingServiceClient(channel);
+            //var client = new GreetingService.GreetingServiceClient(channel);
+            var client = new SqrtService.SqrtServiceClient(channel);
 
 
             //DoSimpleGreet(client);
             //await DoManyGreetings(client);
             //await DoLongGreet(client);
-            await DoGreetEveryone(client);
+            //await DoGreetEveryone(client);
+
+            GetNumberSquareRoot(client);
 
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
@@ -44,7 +48,6 @@ namespace client
             var response = client.Greet(request);
             Console.WriteLine(response.Result);
         }
-
         public static async Task DoManyGreetings(GreetingService.GreetingServiceClient client)
         {
             var greeting = new Greeting()
@@ -114,6 +117,22 @@ namespace client
             await stream.RequestStream.CompleteAsync();
 
             await responseReaderTask;
+        }
+
+        public static void GetNumberSquareRoot(SqrtService.SqrtServiceClient client)
+        {
+            var number = -1;
+
+            try
+            {
+                var request = new SqrtRequest() { Number = number };
+                var response = client.Sqrt(request);
+                Console.WriteLine(response.SquareRoot);
+            }
+            catch (RpcException e)
+            {
+                Console.WriteLine("Error : " + e.Status.Detail);
+            }
         }
     }
 }

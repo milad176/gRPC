@@ -51,7 +51,6 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\System.Buffers.xml
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\System.Memory.xml
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csprojAssemblyReference.cache
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csproj.CoreCompileInputs.cache
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csproj.CopyComplete
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.exe
