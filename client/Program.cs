@@ -21,8 +21,8 @@ namespace client
                      Console.WriteLine("The client connected successfully");
              });
 
-            //var client = new GreetingService.GreetingServiceClient(channel);
-            var client = new SqrtService.SqrtServiceClient(channel);
+            var client = new GreetingService.GreetingServiceClient(channel);
+            //var client = new SqrtService.SqrtServiceClient(channel);
 
 
             //DoSimpleGreet(client);
@@ -30,7 +30,8 @@ namespace client
             //await DoLongGreet(client);
             //await DoGreetEveryone(client);
 
-            GetNumberSquareRoot(client);
+            //GetNumberSquareRoot(client);
+            DoSimpleGreetWithDeadline(client);
 
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
@@ -134,5 +135,26 @@ namespace client
                 Console.WriteLine("Error : " + e.Status.Detail);
             }
         }
+
+        public static void DoSimpleGreetWithDeadline(GreetingService.GreetingServiceClient client)
+        {
+            var greeting = new Greeting()
+            {
+                FirstName = "Milad",
+                LastName = "Kardgar"
+            };
+
+            try
+            {
+                var request = new GreetingRequest() { Greeting = greeting };
+                var response = client.greet_with_deadline(request, deadline: DateTime.UtcNow.AddMilliseconds(200));
+                Console.WriteLine(response.Result);
+            }
+            catch (RpcException e) when (e.StatusCode == StatusCode.DeadlineExceeded)
+            {
+                Console.WriteLine("Error : " + e.Status.Detail);
+            }
+        }
+
     }
 }

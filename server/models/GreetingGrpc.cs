@@ -94,6 +94,14 @@ namespace Greet {
         __Marshaller_greet_GreetEveryoneRequest,
         __Marshaller_greet_GreetEveryoneResponse);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Greet.GreetingRequest, global::Greet.GreetingResponse> __Method_greet_with_deadline = new grpc::Method<global::Greet.GreetingRequest, global::Greet.GreetingResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "greet_with_deadline",
+        __Marshaller_greet_GreetingRequest,
+        __Marshaller_greet_GreetingResponse);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -150,6 +158,18 @@ namespace Greet {
       /// <returns>A task indicating completion of the handler.</returns>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task GreetEveryone(grpc::IAsyncStreamReader<global::Greet.GreetEveryoneRequest> requestStream, grpc::IServerStreamWriter<global::Greet.GreetEveryoneResponse> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      /// <summary>
+      /// Unary with deadline
+      /// </summary>
+      /// <param name="request">The request received from the client.</param>
+      /// <param name="context">The context of the server-side call handler being invoked.</param>
+      /// <returns>The response to send back to the client (wrapped by a task).</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Greet.GreetingResponse> greet_with_deadline(global::Greet.GreetingRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -299,6 +319,54 @@ namespace Greet {
       {
         return CallInvoker.AsyncDuplexStreamingCall(__Method_GreetEveryone, null, options);
       }
+      /// <summary>
+      /// Unary with deadline
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Greet.GreetingResponse greet_with_deadline(global::Greet.GreetingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return greet_with_deadline(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Unary with deadline
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The response received from the server.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Greet.GreetingResponse greet_with_deadline(global::Greet.GreetingRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_greet_with_deadline, null, options, request);
+      }
+      /// <summary>
+      /// Unary with deadline
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+      /// <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+      /// <param name="cancellationToken">An optional token for canceling the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Greet.GreetingResponse> greet_with_deadlineAsync(global::Greet.GreetingRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return greet_with_deadlineAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      /// <summary>
+      /// Unary with deadline
+      /// </summary>
+      /// <param name="request">The request to send to the server.</param>
+      /// <param name="options">The options for the call.</param>
+      /// <returns>The call object.</returns>
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Greet.GreetingResponse> greet_with_deadlineAsync(global::Greet.GreetingRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_greet_with_deadline, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override GreetingServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -316,7 +384,8 @@ namespace Greet {
           .AddMethod(__Method_Greet, serviceImpl.Greet)
           .AddMethod(__Method_GreetManyTimes, serviceImpl.GreetManyTimes)
           .AddMethod(__Method_LongGreet, serviceImpl.LongGreet)
-          .AddMethod(__Method_GreetEveryone, serviceImpl.GreetEveryone).Build();
+          .AddMethod(__Method_GreetEveryone, serviceImpl.GreetEveryone)
+          .AddMethod(__Method_greet_with_deadline, serviceImpl.greet_with_deadline).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -330,6 +399,7 @@ namespace Greet {
       serviceBinder.AddMethod(__Method_GreetManyTimes, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::Greet.GreetManyTimesRequest, global::Greet.GreetManyTimesResponse>(serviceImpl.GreetManyTimes));
       serviceBinder.AddMethod(__Method_LongGreet, serviceImpl == null ? null : new grpc::ClientStreamingServerMethod<global::Greet.LongGreetRequest, global::Greet.LongGreetResponse>(serviceImpl.LongGreet));
       serviceBinder.AddMethod(__Method_GreetEveryone, serviceImpl == null ? null : new grpc::DuplexStreamingServerMethod<global::Greet.GreetEveryoneRequest, global::Greet.GreetEveryoneResponse>(serviceImpl.GreetEveryone));
+      serviceBinder.AddMethod(__Method_greet_with_deadline, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Greet.GreetingRequest, global::Greet.GreetingResponse>(serviceImpl.greet_with_deadline));
     }
 
   }

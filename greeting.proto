@@ -54,4 +54,7 @@ service GreetingService{
 
 	// Bidi Streaming
 	rpc GreetEveryone(stream GreetEveryoneRequest) returns (stream GreetEveryoneResponse){}
+
+	// Unary with deadline
+	rpc greet_with_deadline (GreetingRequest) returns (GreetingResponse) {}
 }
