@@ -56,3 +56,6 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.csproj.CoreCom
 C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.csproj.CopyComplete
 C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.exe
 C:\Users\milad\Desktop\Udemy Courses\gRPC\server\obj\Debug\server.pdb
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\ssl\ca.crt
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\ssl\server.crt
+C:\Users\milad\Desktop\Udemy Courses\gRPC\server\bin\Debug\ssl\server.key
