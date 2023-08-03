@@ -56,3 +56,6 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csproj.CopyCom
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.exe
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.pdb
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csprojAssemblyReference.cache
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\ca.crt
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\client.crt
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\client.key
