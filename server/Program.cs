@@ -1,5 +1,7 @@
 ﻿using Greet;
 using Grpc.Core;
+using Grpc.Reflection;
+using Grpc.Reflection.V1Alpha;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,19 +17,24 @@ namespace server
 
             try
             {
-                var serverCert = File.ReadAllText("ssl/server.crt");
-                var serverKey = File.ReadAllText("ssl/server.key");
-                var keypair = new KeyCertificatePair(serverCert, serverKey);
-                var cacert = File.ReadAllText("ssl/ca.crt");
+                //var serverCert = File.ReadAllText("ssl/server.crt");
+                //var serverKey = File.ReadAllText("ssl/server.key");
+                //var keypair = new KeyCertificatePair(serverCert, serverKey);
+                //var cacert = File.ReadAllText("ssl/ca.crt");
 
-                var Credentials = new SslServerCredentials(new List<KeyCertificatePair>() { keypair }, cacert, true);
+                //var Credentials = new SslServerCredentials(new List<KeyCertificatePair>() { keypair }, cacert, true);
+
+                var reflectionserviceImpl = new ReflectionServiceImpl(GreetingService.Descriptor, ServerReflection.Descriptor);
 
                 server = new Server()
                 {
                     //Services = { SqrtService.BindService(new SqrtServiceImpl()) },
 
-                    Services = { GreetingService.BindService(new GreetingServiceImpl()) },
-                    Ports = { new ServerPort("localhost", port, Credentials) }
+                    Services = { 
+                        GreetingService.BindService(new GreetingServiceImpl()),
+                        ServerReflection.BindService(reflectionserviceImpl)
+                    },
+                    Ports = { new ServerPort("localhost", port, ServerCredentials.Insecure) } //Credentials
                 };
 
                 server.Start();
