@@ -40,8 +40,9 @@ namespace client
             //GetNumberSquareRoot(client);
             //DoSimpleGreetWithDeadline(client);
 
-            //var newBlog = CreateBlog(client);
-            ReadBlog(client);
+            var newBlog = CreateBlog(client);
+            //ReadBlog(client);
+            UpdateBlog(client, newBlog);
 
 
             channel.ShutdownAsync().Wait();
@@ -191,6 +192,26 @@ namespace client
                 });
 
                 Console.WriteLine(response.Blog.ToString());
+            }
+            catch (RpcException e)
+            {
+                Console.WriteLine(e.Status.Detail);
+            }
+        }
+        private static void UpdateBlog(BlogService.BlogServiceClient client, Blog.Blog blog)
+        {
+            try
+            {
+                blog.AuthorId = "Updated author";
+                blog.Title = "Updated title";
+                blog.Content = "Updated content";
+
+                var response = client.UpdateBlog(new UpdateBlogRequest()
+                {
+                    Blog = blog
+                });
+
+                Console.WriteLine("The blog " + response.Blog.ToString() + " was updated!");
             }
             catch (RpcException e)
             {
