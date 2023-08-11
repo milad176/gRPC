@@ -31,6 +31,9 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\grpc_csharp_ext.x86.d
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\grpc_csharp_ext.x64.dll
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\libgrpc_csharp_ext.x64.so
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\libgrpc_csharp_ext.x64.dylib
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\ca.crt
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\client.crt
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\client.key
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\client.exe.config
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\client.exe
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\client.pdb
@@ -56,6 +59,3 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csproj.CopyCom
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.exe
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.pdb
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csprojAssemblyReference.cache
-C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\ca.crt
-C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\client.crt
-C:\Users\milad\Desktop\Udemy Courses\gRPC\client\bin\Debug\ssl\client.key
