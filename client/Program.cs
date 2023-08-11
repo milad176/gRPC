@@ -33,13 +33,16 @@ namespace client
             //var client = new GreetingService.GreetingServiceClient(channel);
             //var client = new SqrtService.SqrtServiceClient(channel);
 
-            var newBlog = CreateBlog(client);
             //DoSimpleGreet(client);
             //await DoManyGreetings(client);
             //await DoLongGreet(client);
             //await DoGreetEveryone(client);
             //GetNumberSquareRoot(client);
             //DoSimpleGreetWithDeadline(client);
+
+            //var newBlog = CreateBlog(client);
+            ReadBlog(client);
+
 
             channel.ShutdownAsync().Wait();
             Console.ReadKey();
@@ -161,6 +164,7 @@ namespace client
                 Console.WriteLine("Error : " + e.Status.Detail);
             }
         }
+
         private static Blog.Blog CreateBlog(BlogService.BlogServiceClient client)
         {
             var response = client.CreateBlog(new CreateBlogRequest()
@@ -176,6 +180,22 @@ namespace client
             Console.WriteLine("The blog " + response.Blog.Id + " was created!");
 
             return response.Blog;
+        }
+        private static void ReadBlog(BlogService.BlogServiceClient client)
+        {
+            try
+            {
+                var response = client.ReadBlog(new ReadBlogRequest()
+                {
+                    BlogId = "64d60292ec47f544035204f8"
+                });
+
+                Console.WriteLine(response.Blog.ToString());
+            }
+            catch (RpcException e)
+            {
+                Console.WriteLine(e.Status.Detail);
+            }
         }
     }
 }
