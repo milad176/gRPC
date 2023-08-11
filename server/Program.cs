@@ -1,4 +1,5 @@
-﻿using Greet;
+﻿using Blog;
+using Greet;
 using Grpc.Core;
 using Grpc.Reflection;
 using Grpc.Reflection.V1Alpha;
@@ -24,15 +25,15 @@ namespace server
 
                 //var Credentials = new SslServerCredentials(new List<KeyCertificatePair>() { keypair }, cacert, true);
 
-                var reflectionserviceImpl = new ReflectionServiceImpl(GreetingService.Descriptor, ServerReflection.Descriptor);
+                //var reflectionserviceImpl = new ReflectionServiceImpl(GreetingService.Descriptor, ServerReflection.Descriptor);
 
                 server = new Server()
                 {
                     //Services = { SqrtService.BindService(new SqrtServiceImpl()) },
 
-                    Services = { 
-                        GreetingService.BindService(new GreetingServiceImpl()),
-                        ServerReflection.BindService(reflectionserviceImpl)
+                    Services = {
+                        BlogService.BindService(new BlogServiceImpl()),
+                        //ServerReflection.BindService(reflectionserviceImpl)
                     },
                     Ports = { new ServerPort("localhost", port, ServerCredentials.Insecure) } //Credentials
                 };
