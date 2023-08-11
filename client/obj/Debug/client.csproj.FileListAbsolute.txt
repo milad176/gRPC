@@ -58,3 +58,4 @@ C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csproj.CoreCom
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csproj.CopyComplete
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.exe
 C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.pdb
+C:\Users\milad\Desktop\Udemy Courses\gRPC\client\obj\Debug\client.csprojAssemblyReference.cache
