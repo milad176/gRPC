@@ -1,4 +1,5 @@
-﻿using Greet;
+﻿using Blog;
+using Greet;
 using Grpc.Core;
 using Sqrt;
 using System;
@@ -14,13 +15,13 @@ namespace client
 
         static async Task Main(string[] args)
         {
-            var clientCert = File.ReadAllText("ssl/client.crt");
-            var clientKey = File.ReadAllText("ssl/client.key");
-            var caCrt = File.ReadAllText("ssl/ca.crt");
+            //var clientCert = File.ReadAllText("ssl/client.crt");
+            //var clientKey = File.ReadAllText("ssl/client.key");
+            //var caCrt = File.ReadAllText("ssl/ca.crt");
 
-            var channelCredentials = new SslCredentials(caCrt, new KeyCertificatePair(clientCert, clientKey));
+            //var channelCredentials = new SslCredentials(caCrt, new KeyCertificatePair(clientCert, clientKey));
 
-            Channel channel = new Channel("localhost", 50051, channelCredentials);
+            Channel channel = new Channel("localhost", 50051, ChannelCredentials.Insecure);
 
             await channel.ConnectAsync().ContinueWith((task) =>
              {
@@ -28,15 +29,15 @@ namespace client
                      Console.WriteLine("The client connected successfully");
              });
 
-            var client = new GreetingService.GreetingServiceClient(channel);
+            var client = new BlogService.BlogServiceClient(channel);
+            //var client = new GreetingService.GreetingServiceClient(channel);
             //var client = new SqrtService.SqrtServiceClient(channel);
 
-
-            DoSimpleGreet(client);
+            var newBlog = CreateBlog(client);
+            //DoSimpleGreet(client);
             //await DoManyGreetings(client);
             //await DoLongGreet(client);
             //await DoGreetEveryone(client);
-
             //GetNumberSquareRoot(client);
             //DoSimpleGreetWithDeadline(client);
 
@@ -126,7 +127,6 @@ namespace client
 
             await responseReaderTask;
         }
-
         public static void GetNumberSquareRoot(SqrtService.SqrtServiceClient client)
         {
             var number = -1;
@@ -142,7 +142,6 @@ namespace client
                 Console.WriteLine("Error : " + e.Status.Detail);
             }
         }
-
         public static void DoSimpleGreetWithDeadline(GreetingService.GreetingServiceClient client)
         {
             var greeting = new Greeting()
@@ -162,6 +161,21 @@ namespace client
                 Console.WriteLine("Error : " + e.Status.Detail);
             }
         }
+        private static Blog.Blog CreateBlog(BlogService.BlogServiceClient client)
+        {
+            var response = client.CreateBlog(new CreateBlogRequest()
+            {
+                Blog = new Blog.Blog()
+                {
+                    AuthorId = "Milad",
+                    Title = "New blog!",
+                    Content = "Hello world, this is a new blog"
+                }
+            });
 
+            Console.WriteLine("The blog " + response.Blog.Id + " was created!");
+
+            return response.Blog;
+        }
     }
 }
